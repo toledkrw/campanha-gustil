@@ -21,13 +21,13 @@ public class Campanha {
     @Column(length = 100, nullable = false)
     String nome;
     @Column(length = 500, nullable = false)
-    String descrição;
+    String descricao;
 
     @Column(length = 1000, nullable = true)
-    String ações, duração, plano;
+    String acoes, duracao, plano;
 
-    Date inicio;
+    String inicio;
 
-    Integer investimento;
-    Double percentual_concluído;
+    Double investimento;
+    Double percentual_concluido;
 }
