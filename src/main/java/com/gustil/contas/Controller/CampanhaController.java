@@ -1,12 +1,15 @@
 package com.gustil.contas.Controller;
 
 import com.gustil.contas.Model.Entities.Campanha;
+import com.gustil.contas.Model.Repositories.CampanhaDTO;
 import com.gustil.contas.Service.CampanhaService;
 import org.springframework.beans.factory.CannotLoadBeanClassException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -39,21 +42,23 @@ public class CampanhaController {
     @GetMapping("/buscar/inicio/{data}")
     public ResponseEntity<ArrayList> getCampanhaByData(@PathVariable String data){
         try{
-            return ResponseEntity.ok().body(campanhaService.getCampanhaByData(data));
+            LocalDate localDate= LocalDate.parse(data, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            ArrayList <Campanha> campanhas = campanhaService.getCampanhaByData(localDate);
+            return ResponseEntity.ok().body(campanhas);
         }
         catch(Exception e){
             return ResponseEntity.notFound().build();
         }
     }
 
-//    @PostMapping("/cadastrar")
-//    public ResponseEntity<Campanha> cadastrarCampanha(@RequestBody Campanha campanha){
-//        try{
-//            campanhaService.cadastrarCampanha(campanha);
-//            return ResponseEntity.status(201).build();
-//        }
-//        catch(Exception e){
-//            return ResponseEntity.badRequest().build();
-//        }
-//    }
+    @PostMapping("/cadastrar")
+    public ResponseEntity<Campanha> cadastrarCampanha(@RequestBody CampanhaDTO campanha){
+        try{
+            campanhaService.cadastrarCampanha(campanha);
+            return ResponseEntity.status(201).build();
+        }
+        catch(Exception e){
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

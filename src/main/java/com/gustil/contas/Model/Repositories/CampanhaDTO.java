@@ -1,4 +1,7 @@
-package com.gustil.contas.Model.Entities;
+package com.gustil.contas.Model.Repositories;
+
+import javax.persistence.Column;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -6,20 +9,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.Date;
-
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-@Entity
-public class Campanha {
-
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    Integer id;
+@Data
+public class CampanhaDTO {
 
     @Column(length = 100, nullable = false)
     String nome;
@@ -30,7 +23,7 @@ public class Campanha {
     String acoes, duracao, plano;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
-    @DateTimeFormat(pattern ="dd/MM/yyyy" )
+    @DateTimeFormat(pattern ="dd/MM/yyyy")
     LocalDate inicio;
 
     Double investimento;
