@@ -12,4 +12,6 @@ public interface CampanhaDAO extends JpaRepository <Campanha,String> {
     public Campanha findByNome(String nome);
 
     public ArrayList<Campanha> findByInicio(LocalDate inicio);
+
+    public ArrayList<Campanha> findAll();
 }

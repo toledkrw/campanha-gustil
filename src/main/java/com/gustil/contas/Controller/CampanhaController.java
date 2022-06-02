@@ -51,6 +51,17 @@ public class CampanhaController {
         }
     }
 
+    @GetMapping("/buscar/*")
+    public ResponseEntity<ArrayList> getCampanhas(){
+        try{
+            ArrayList <Campanha> campanhas = campanhaService.getCampanhas();
+            return ResponseEntity.ok().body(campanhas);
+        }
+        catch(Exception e){
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping("/cadastrar")
     public ResponseEntity<Campanha> cadastrarCampanha(@RequestBody CampanhaDTO campanha){
         try{

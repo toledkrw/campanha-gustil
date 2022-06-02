@@ -38,4 +38,8 @@ public class CampanhaService {
         return campanhaDAO.save(entidade);
     }
 
+    public ArrayList<Campanha> getCampanhas() {
+        ArrayList<Campanha> campanhas = campanhaDAO.findAll();
+        return campanhas;
+    }
 }
