@@ -4,14 +4,15 @@ import javax.persistence.Column;
 import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
-@AllArgsConstructor
-@NoArgsConstructor
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CampanhaDTO {
 
     @Column(length = 100, nullable = false)

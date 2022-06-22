@@ -1,17 +1,16 @@
 package com.gustil.contas.Controller;
 
+import com.gustil.contas.Service.CampanhaService;
 import com.gustil.contas.Model.Entities.Campanha;
 import com.gustil.contas.Model.Repositories.CampanhaDTO;
-import com.gustil.contas.Service.CampanhaService;
-import org.springframework.beans.factory.CannotLoadBeanClassException;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
 
 @RestController
 @RequestMapping("/api/campanha")

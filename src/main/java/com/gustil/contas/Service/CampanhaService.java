@@ -4,14 +4,13 @@ import com.gustil.contas.Exceptions.FieldValidationException;
 
 import com.gustil.contas.Model.Entities.Campanha;
 import com.gustil.contas.Model.Repositories.CampanhaDAO;
-
 import com.gustil.contas.Model.Repositories.CampanhaDTO;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 @Service
 public class CampanhaService {
