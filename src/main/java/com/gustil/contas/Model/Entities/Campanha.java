@@ -9,10 +9,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Objects;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 
 @Entity
 public class Campanha {
@@ -35,4 +37,7 @@ public class Campanha {
 
     Double investimento;
     Double percentual_concluido;
+
+//    List<Objects> publico_alvo;
+    String publico_alvo;
 }

@@ -2,7 +2,7 @@ package com.gustil.contas.Controller;
 
 import com.gustil.contas.Service.CampanhaService;
 import com.gustil.contas.Model.Entities.Campanha;
-import com.gustil.contas.Model.Repositories.CampanhaDTO;
+import com.gustil.contas.Model.Repositories.Campanha.CampanhaDTO;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/campanha")
@@ -69,6 +70,26 @@ public class CampanhaController {
         }
         catch(Exception e){
             return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @PatchMapping("/adicionar/publico-alvo")
+    public ResponseEntity<Campanha> adicionarPublicoAlvo(@RequestBody Map<String, String> objeto){
+
+        try{
+
+            if (objeto.get("id") != null){
+                campanhaService.adicionarPublicoAlvoId(Integer.parseInt(objeto.get("id")),objeto.get("publico"), null);
+            }
+            else{
+                campanhaService.adicionarPublicoAlvoId(null, objeto.get("publico"), objeto.get("campanha"));
+            }
+
+            return ResponseEntity.status(204).build();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            return ResponseEntity.status(400).build();
         }
     }
 }

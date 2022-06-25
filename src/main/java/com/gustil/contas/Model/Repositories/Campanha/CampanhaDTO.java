@@ -1,7 +1,7 @@
-package com.gustil.contas.Model.Repositories;
+package com.gustil.contas.Model.Repositories.Campanha;
 
-import javax.persistence.Column;
 import java.time.LocalDate;
+import javax.persistence.Column;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CampanhaDTO {
+    Integer id;
 
     @Column(length = 100, nullable = false)
     String nome;
